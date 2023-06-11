@@ -63,11 +63,28 @@ nav {
 .grid-cell {
   width: 100%;
   border: solid #060432 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 .cell4-4 {
   background-color: #F64B42;
 }
+
+.robot {
+  position: absolute;
+  width: 80%;
+  z-index: 1;
+  animation: fadeIn .5s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 
 @media (max-width: 1100px) {
   .stepper {

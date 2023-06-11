@@ -4,7 +4,7 @@ import { ProgressBar } from './ProgressBar';
 export const Navbar = () => {
   return (
     <nav>
-      <img className='logo' src="./public/logo.png" alt="" />
+      <img className='logo' src="./public/imgs/logo.png" alt="" />
       <ProgressBar />
     </nav>
   );

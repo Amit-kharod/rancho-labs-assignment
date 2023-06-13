@@ -20,7 +20,7 @@ export const BuildSection = () => {
   return (
     <section className="build">
       <h2>
-        <GiPuzzle />
+        <GiPuzzle className='icon'/>
         Build
       </h2>
       <RobotGrid actionSequence={actionSequence}/>

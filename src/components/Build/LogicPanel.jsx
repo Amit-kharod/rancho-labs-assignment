@@ -48,6 +48,7 @@ export const LogicPanel = ({ handlePlayButton }) => {
           onArrowDrop(e);
         }}
       >
+        <h2>Logic Panel</h2>
         <Droppable droppableId="logic-box-droppable" direction="horizontal">
           {(provided, snapshot) => {
             return (
@@ -87,7 +88,6 @@ export const LogicPanel = ({ handlePlayButton }) => {
             );
           }}
         </Droppable>
-
         <div className="actions-panel">
           <Droppable
             isDropDisabled={true}

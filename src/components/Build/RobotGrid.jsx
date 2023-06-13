@@ -25,6 +25,8 @@ export const RobotGrid = ({ actionSequence }) => {
     left: `${currentPosition.y * 101 + 10}%`,
   });
 
+  const [instructions, setInstructions] = useState([]);
+
   useEffect(() => {
     setCurrentPosition({
       x: 0,
@@ -38,12 +40,13 @@ export const RobotGrid = ({ actionSequence }) => {
   console.log(robotStyle);
   console.log(robotPath);
 
-  const moveRobot = (position) => {
+  const moveRobot = (position, actions) => {
     setCurrentPosition(position);
     setRobotStyle({
       top: `${position.x * 101.5 + 10}%`,
       left: `${position.y * 101 + 10}%`,
     });
+    setInstructions(actions);
   };
 
   const getRobotPath = () => {
@@ -87,32 +90,48 @@ export const RobotGrid = ({ actionSequence }) => {
     console.log(path);
     path.forEach((path, i) => {
       setTimeout(() => {
-        moveRobot({ x: path[0], y: path[1] });
+        moveRobot({ x: path[0], y: path[1] }, actionSequence.slice(0, i));
       }, 1000 * i);
     });
   };
 
   return (
-    <div className="robot-grid">
-      {gridRows.map((row, i) => {
-        return gridRows.map((col, j) => {
-          {
-            if (i == 0 && j == 0)
-              return (
-                <div key={`${i}-${j}`} className={`grid-cell cell${i}-${j}`}>
-                  <img
-                    className="robot"
-                    style={robotStyle}
-                    src="./public/imgs/robot.png"
-                  ></img>{' '}
-                </div>
-              );
-          }
-          return (
-            <div key={`${i}-${j}`} className={`grid-cell cell${i}-${j}`}></div>
-          );
-        });
-      })}
-    </div>
+    <>
+      <div className="robot-grid">
+        {gridRows.map((row, i) => {
+          return gridRows.map((col, j) => {
+            {
+              if (i == 0 && j == 0)
+                return (
+                  <div key={`${i}-${j}`} className={`grid-cell cell${i}-${j}`}>
+                    <img
+                      className="robot"
+                      style={robotStyle}
+                      src="./public/imgs/robot.png"
+                    ></img>{' '}
+                  </div>
+                );
+            }
+            return (
+              <div
+                key={`${i}-${j}`}
+                className={`grid-cell cell${i}-${j}`}
+              ></div>
+            );
+          });
+        })}
+      </div>
+      <div className="instructions">
+        <h2>Instructions Implemented</h2>
+        <ul>
+          {instructions.map((instruction, i) => {
+            return <li key={i}>Robot move {instruction}</li>;
+          })}
+          {currentPosition.x === 4 && currentPosition.y === 4 && (
+            <li className='final-instruction'>...Robot reached the destination</li>
+          )}
+        </ul>
+      </div>
+    </>
   );
 };

@@ -24,7 +24,6 @@ export const BuildSection = () => {
         Build
       </h2>
       <RobotGrid actionSequence={actionSequence}/>
-      <Instructions />
       <LogicPanel handlePlayButton={handlePlayButton} />
     </section>
   );

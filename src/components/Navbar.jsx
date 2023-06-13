@@ -1,11 +1,9 @@
 import React from 'react';
-import { ProgressBar } from './ProgressBar';
 
 export const Navbar = () => {
   return (
     <nav>
-      <img className='logo' src="./public/imgs/logo.png" alt="" />
-      <ProgressBar />
+      <img className='logo' src="./imgs/logo.png" alt="" />
     </nav>
   );
 };

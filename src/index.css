@@ -28,14 +28,7 @@ nav {
 
 .stepper {
   margin-right: 20rem;
-}
-
-.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root {
-  font-size: 3rem !important;
-}
-
-.css-zpcwqm-MuiStepConnector-root {
-  top: 15px !important;
+  font-size: 3rem;
 }
 
 main {
@@ -157,13 +150,14 @@ main {
   padding: 2rem 2rem;
   flex-wrap: wrap;
   grid-column: span 2;
+  row-gap: 1rem;
 }
 
 .logic-panel {
   grid-column: span 2;
 }
 
-.logic-panel > h2{
+.logic-panel > h2 {
   background-color: #4296f6;
   font-weight: 500;
   font-size: 1.8rem;
@@ -188,7 +182,6 @@ main {
 .logic-box-placeholder {
   margin: 0 auto;
 }
-
 
 .actions-panel {
   display: flex;
@@ -220,7 +213,6 @@ main {
   color: #4296f6;
 }
 
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -250,7 +242,7 @@ main {
     flex-direction: column;
     height: 85%;
     margin: 4rem 2rem;
-    width:90%;
+    width: 90%;
     background-color: #0a0746;
   }
   .instructions > h2 {
@@ -269,7 +261,7 @@ main {
     height: 85%;
     margin: 4rem 2rem;
     margin-left: 0rem;
-    width:80%;
+    width: 80%;
   }
   .instructions > h2 {
     font-size: 1.6rem;
@@ -283,12 +275,6 @@ main {
 }
 
 @media (max-width: 800px) {
-  .css-n7tliy-MuiStep-root {
-    padding: 0.4rem !important;
-  }
-  .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root {
-    font-size: 2.5rem !important;
-  }
   main {
     grid-template-columns: 1fr;
   }
@@ -302,7 +288,7 @@ main {
     flex-direction: column;
     height: 85%;
     margin: 4rem 2rem;
-    width:90%;
+    width: 90%;
     background-color: #0a0746;
   }
   .instructions > h2 {
@@ -323,17 +309,11 @@ main {
   .stepper {
     margin-right: 0rem;
   }
-  .css-n7tliy-MuiStep-root {
-    padding: 0.2rem !important;
-  }
-  .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root {
-    font-size: 2.2rem !important;
-  }
   .instructions {
     height: 75%;
     margin: 4rem 2rem;
     margin-left: 0rem;
-    width:80%;
+    width: 80%;
   }
   .instructions > h2 {
     font-size: 1.2rem;
@@ -347,12 +327,6 @@ main {
 }
 
 @media (max-width: 450px) {
-  .css-n7tliy-MuiStep-root {
-    padding: 0.1rem !important;
-  }
-  .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root {
-    font-size: 2.5rem !important;
-  }
   nav {
     flex-direction: column;
     align-items: start;
@@ -360,11 +334,13 @@ main {
   .stepper {
     align-self: center;
   }
+
   .robot-grid {
     grid-column: span 2;
     width: 70vw;
     height: 70vw;
     margin: 4rem;
+    justify-self: center;
   }
   .instructions {
     grid-column: span 2;
@@ -372,7 +348,7 @@ main {
     height: 20rem;
     margin: 0 2rem 2rem 2rem;
     margin-left: 0rem;
-    width:80%;
+    width: 80%;
   }
   .instructions > h2 {
     font-size: 2rem;

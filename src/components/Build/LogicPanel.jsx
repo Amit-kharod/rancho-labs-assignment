@@ -12,9 +12,7 @@ import { GrPowerReset } from 'react-icons/gr';
 import { v4 as uuid } from 'uuid';
 
 export const LogicPanel = ({ handlePlayButton }) => {
-  const [logicBoxesState, setLogicBoxesState] = useState([
-    // { id: 'box-1', action: <BsArrowLeft /> },
-  ]);
+  const [logicBoxesState, setLogicBoxesState] = useState([]);
 
   const [arrowBoxes, setArrowBoxes] = useState([
     { id: 'box-1', action: <BsArrowLeft />, actionName: 'left' },
@@ -24,7 +22,6 @@ export const LogicPanel = ({ handlePlayButton }) => {
   ]);
 
   const onArrowDrop = (e) => {
-    console.log(e);
     const { source, destination } = e;
     if (destination.droppableId === 'logic-box-droppable') {
       if (logicBoxesState.length >= 14) {
@@ -109,7 +106,6 @@ export const LogicPanel = ({ handlePlayButton }) => {
                         draggableId={arrowBox.id}
                       >
                         {(provided, snapshot) => {
-                          console.log(snapshot.isDragging);
                           return (
                             <>
                               <div

@@ -1,24 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 const gridRows = [0, 1, 2, 3, 4];
-// const actionSequence = [
-//   'down',
-//   'down',
-//   'down',
-//   'down',
-//   'right',
-//   'right',
-//   'right',
-//   'right',
-// ];
 
 export const RobotGrid = ({ actionSequence }) => {
   const [currentPosition, setCurrentPosition] = useState({
     x: 0,
     y: 0,
   });
-
-  const [robotPath, setRobotPath] = useState([]);
 
   const [robotStyle, setRobotStyle] = useState({
     top: `${currentPosition.x * 101.5 + 10}%`,
@@ -33,12 +21,8 @@ export const RobotGrid = ({ actionSequence }) => {
       y: 0,
     });
     getRobotPath();
-    // actionSequence.length > 0 && moveRobotInSequence();
   }, [actionSequence]);
 
-  console.log(currentPosition);
-  console.log(robotStyle);
-  console.log(robotPath);
 
   const moveRobot = (position, actions) => {
     setCurrentPosition(position);
@@ -52,15 +36,16 @@ export const RobotGrid = ({ actionSequence }) => {
   const getRobotPath = () => {
     let [x, y] = [0, 0];
     const path = [[0, 0]];
+    const instructionsSequence = [];
 
     actionSequence.map((action, i) => {
       switch (action) {
         case 'down':
-          console.log(path.slice(-1)[0]);
           if (path.slice(-1)[0][0] >= 4) {
             break;
           }
           path.push([x + 1, y]);
+          instructionsSequence.push('down');
           x++;
           break;
         case 'left':
@@ -68,6 +53,7 @@ export const RobotGrid = ({ actionSequence }) => {
             break;
           }
           path.push([x, y - 1]);
+          instructionsSequence.push('left');
           y--;
           break;
         case 'right':
@@ -75,6 +61,8 @@ export const RobotGrid = ({ actionSequence }) => {
             break;
           }
           path.push([x, y + 1]);
+          instructionsSequence.push('right');
+
           y++;
           break;
         default:
@@ -83,14 +71,14 @@ export const RobotGrid = ({ actionSequence }) => {
             break;
           }
           path.push([x - 1, y]);
+          instructionsSequence.push('up');
           x--;
           break;
       }
     });
-    console.log(path);
     path.forEach((path, i) => {
       setTimeout(() => {
-        moveRobot({ x: path[0], y: path[1] }, actionSequence.slice(0, i));
+        moveRobot({ x: path[0], y: path[1] }, instructionsSequence.slice(0, i));
       }, 1000 * i);
     });
   };
@@ -107,7 +95,7 @@ export const RobotGrid = ({ actionSequence }) => {
                     <img
                       className="robot"
                       style={robotStyle}
-                      src="./public/imgs/robot.png"
+                      src="./imgs/robot.png"
                     ></img>{' '}
                   </div>
                 );
@@ -128,7 +116,9 @@ export const RobotGrid = ({ actionSequence }) => {
             return <li key={i}>Robot move {instruction}</li>;
           })}
           {currentPosition.x === 4 && currentPosition.y === 4 && (
-            <li className='final-instruction'>...Robot reached the destination</li>
+            <li className="final-instruction">
+              ...Robot reached the destination
+            </li>
           )}
         </ul>
       </div>

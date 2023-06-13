@@ -9,8 +9,8 @@ export const RobotGrid = ({ actionSequence }) => {
   });
 
   const [robotStyle, setRobotStyle] = useState({
-    top: `${currentPosition.x * 101.5 + 10}%`,
-    left: `${currentPosition.y * 101 + 10}%`,
+    top: `${currentPosition.x * 110.5 + 10}%`,
+    left: `${currentPosition.y * 110 + 10}%`,
   });
 
   const [instructions, setInstructions] = useState([]);

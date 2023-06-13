@@ -233,8 +233,8 @@ main {
 
 @media (max-width: 1244px) {
   .robot-grid {
-    width: 24vw;
-    height: 24vw;
+    width: 30vw;
+    height: 30vw;
     margin: 4rem;
   }
   .instructions {
@@ -279,8 +279,8 @@ main {
     grid-template-columns: 1fr;
   }
   .robot-grid {
-    width: 37vw;
-    height: 37vw;
+    width: 45vw;
+    height: 45vw;
     margin: 4rem;
   }
   .instructions {
@@ -306,41 +306,15 @@ main {
 }
 
 @media (max-width: 600px) {
-  .stepper {
-    margin-right: 0rem;
-  }
-  .instructions {
-    height: 75%;
-    margin: 4rem 2rem;
-    margin-left: 0rem;
-    width: 80%;
-  }
-  .instructions > h2 {
-    font-size: 1.2rem;
-    padding: 1rem 2rem;
-    font-weight: 400;
-  }
-  .instructions ul {
-    font-size: 1rem;
-    padding: 2rem;
-  }
-}
-
-@media (max-width: 450px) {
-  nav {
-    flex-direction: column;
-    align-items: start;
-  }
-  .stepper {
-    align-self: center;
-  }
-
   .robot-grid {
     grid-column: span 2;
     width: 70vw;
     height: 70vw;
     margin: 4rem;
     justify-self: center;
+  }
+  .stepper {
+    margin-right: 0rem;
   }
   .instructions {
     grid-column: span 2;
@@ -359,6 +333,17 @@ main {
     font-size: 1.5rem;
     padding: 2rem;
   }
+}
+
+@media (max-width: 450px) {
+  nav {
+    flex-direction: column;
+    align-items: start;
+  }
+  .stepper {
+    align-self: center;
+  }
+
   .play > span {
     display: none;
   }

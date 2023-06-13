@@ -22,6 +22,10 @@ To get the frontend running locally:
 - Fully Responsive
 - Deployed using vercel
 
+## Key Points
+- Constraints added to prevent robot from going outside of the grid
+- Only upto 14 arrows can be added in Logic Panel
+
 ## Screenshots
 
 _Learn Section_
